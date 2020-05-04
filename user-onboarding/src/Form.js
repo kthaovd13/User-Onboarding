@@ -7,11 +7,23 @@ function Form () {
         name: "",
         email: "",
         password: "",
+        terms: ""
+    })
+
+    const [errors, setErrors] = useState({
+        name: "",
+        email: "",
+        password: "",
+        terms: ""
     })
 
     const formSubmit = e => {
         e.preventDefault();
         
+    }
+
+    const inputChange = e => {
+        setFormState({ name: e.target.value })
     }
     return (
         <form onSubmit={formSubmit}>
@@ -32,7 +44,7 @@ function Form () {
 
             <label htmlFor="terms" className="terms">
                 Terms of service
-            <input id="terms" type="checkbox" name="terms" />
+            <input id="terms" type="checkbox" name="terms" checked={true} />
             </label>
 
             <button type="submit">Submit</button>
